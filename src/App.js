@@ -1,17 +1,18 @@
 import './App.css';
-import Main from './components/Main';
-import Search from './components/Search';
-
+import Main from './components/Main'
 import { CityProvider } from './context/CityContext';
+import { WeaterProvider } from './context/WeaterContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div>    
-      <CityProvider>  
-        <Search />
-        <Main />
-      </CityProvider>      
-    </div>
+    <>  
+      <WeaterProvider> 
+        <CityProvider>         
+          <Main/>
+        </CityProvider>
+      </WeaterProvider>         
+    </>
   );
 }
 

@@ -10,7 +10,7 @@ export const CityProvider = ( {children} ) => {
         cityName, setCityName
     };
 
-    return <CityContext.Provider value={values}>{children}</CityContext.Provider>   
+    return <CityContext.Provider value={values}>{children}</CityContext.Provider>;   
 };
 
 export const useCity = () => useContext(CityContext);

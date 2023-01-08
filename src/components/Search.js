@@ -1,29 +1,30 @@
-import React from 'react'
+import { useCity } from '../context/CityContext';
+import citysJson from '../data/citys.json';
 
 const Search = () => {
 
-    const handleChange = (event) => {
-        console.log(event.target.value)
-      }
+  const { cityName, setCityName } = useCity();
+
+    const onChangeOption = (event) => {
+        if(event.target.value != "select menu" ) {
+          console.log(event.target.value);
+          setCityName(event.target.value);
+        };
+    };
 
   return (
     <div>
-        {/* <label>
-          Pick your favorite flavor: */}
-          <select >
-            <option value="grapefruit">Grapefruit</option>
-            <option value="lime">Lime</option>
-            <option value="coconut">Coconut</option>
-            <option value="mango">Mango</option>
-          </select>
-        {/* </label> */}
-        <form>
-      <select  onChange={handleChange}>
-        <option value="Ford">Ford</option>
-        <option value="Volvo">Volvo</option>
-        <option value="Fiat">Fiat</option>
-      </select>
-    </form>
+      <form>
+        <select className='form-select' onChange={onChangeOption}>
+        <option defaultValue={"selected"}>Bir şehir seç</option>
+        {
+          citysJson.map((city) => (
+
+            <option value={city.name} key={city.id}>{city.name}</option>
+          ))
+        } 
+        </select>
+      </form>
     </div>
   )
 }
