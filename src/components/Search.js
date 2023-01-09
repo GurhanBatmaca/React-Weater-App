@@ -6,8 +6,7 @@ const Search = () => {
   const { cityName, setCityName } = useCity();
 
     const onChangeOption = (event) => {
-        if(event.target.value != "select menu" ) {
-          console.log(event.target.value);
+        if(event.target.value !== "select menu" ) {
           setCityName(event.target.value);
         };
     };

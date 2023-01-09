@@ -5,12 +5,18 @@ const WeaterContext = createContext();
 export const WeaterProvider = ({children}) => {
 
     const [weater,setWeater] = useState({});
+    const [daysWeater, setDaysWeater] = useState([]);
+    const [title, setTitle] = useState("");
+    const [imgURL, setImgURL] = useState("");
 
     const values = {
-        weater,setWeater
+        weater,setWeater,
+        daysWeater, setDaysWeater,
+        title, setTitle,
+        imgURL, setImgURL
     };
 
     return <WeaterContext.Provider value={values}>{children}</WeaterContext.Provider>;    
 }
 
-export const useTest = () => useContext(WeaterContext);
+export const useWeater = () => useContext(WeaterContext);
