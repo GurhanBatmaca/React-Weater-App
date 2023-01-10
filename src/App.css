@@ -1,28 +1,49 @@
-.App {
-  text-align: center;
+.main-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.city_card {
-  height: 50vh;
-}
-
 .city_card img {
   height: 100px;
   width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my_cards .days_card {
-  height: 40vh;
   width: 100%;
 }
 
 .my_cards .days_card img {
   height: 100px;
   width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .my_cards .days_card .card-body {
   height: 100%;
   width: 100%;
+}
+
+.city-name {
+  border-bottom: 1px solid black;
+}
+
+.temp {
+  font-size: 2.8rem;
+}
+
+.feelslike {
+  font-size: 1.5rem;
+}
+
+.sky {
+  font-size: 2rem;
+}
+
+.max-min {
+  display: flex;
+  flex-direction: column;
 }
 

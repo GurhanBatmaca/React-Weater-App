@@ -12,7 +12,7 @@ const Search = () => {
     };
 
   return (
-    <div>
+    <div className='container py-3'>
       <form>
         <select className='form-select' onChange={onChangeOption}>
         <option defaultValue={"selected"}>Bir şehir seç</option>

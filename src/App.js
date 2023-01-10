@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>  
-      <WeaterProvider> 
-        <CityProvider>         
-          <Main/>
-        </CityProvider>
-      </WeaterProvider>         
+    <CityProvider>
+      <WeaterProvider>                 
+          <Main/>       
+      </WeaterProvider>  
+    </CityProvider>       
     </>
   );
 }
