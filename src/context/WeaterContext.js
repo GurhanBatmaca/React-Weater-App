@@ -1,5 +1,4 @@
 import { createContext,useContext,useState,useEffect } from "react";
-
 import { useCity } from "./CityContext";
 
 const WeaterContext = createContext();
@@ -12,6 +11,7 @@ export const WeaterProvider = ({children}) => {
     const [daysWeater, setDaysWeater] = useState([]);
     const [title, setTitle] = useState("");
     const [imgURL, setImgURL] = useState("");
+    const [hours, setHours] = useState([]);
 
     useEffect(() => {
         const options = {
@@ -30,7 +30,6 @@ export const WeaterProvider = ({children}) => {
                 setTitle(Object.values(response.current.condition)[0]);
                 setImgURL(Object.values(response.current.condition)[1]);
                 setDaysWeater(response.forecast.forecastday);
-                console.log(response.forecast.forecastday);
             })
             .catch(err => console.error(err));
     },[cityName])
@@ -39,7 +38,8 @@ export const WeaterProvider = ({children}) => {
         weater,setWeater,
         daysWeater, setDaysWeater,
         title, setTitle,
-        imgURL, setImgURL
+        imgURL, setImgURL,
+        hours, setHours
     };
 
     return <WeaterContext.Provider value={values}>{children}</WeaterContext.Provider>;    

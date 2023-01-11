@@ -10,10 +10,6 @@
   margin-right: auto;
 }
 
-.my_cards .days_card {
-  width: 100%;
-}
-
 .my_cards .days_card img {
   height: 100px;
   width: 100px;
@@ -40,10 +36,15 @@
 
 .sky {
   font-size: 2rem;
+  height: 6rem;
 }
 
 .max-min {
   display: flex;
   flex-direction: column;
+}
+
+a {
+  text-decoration: none!important;
 }
 

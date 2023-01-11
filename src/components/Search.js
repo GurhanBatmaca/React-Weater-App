@@ -3,7 +3,7 @@ import citysJson from '../data/citys.json';
 
 const Search = () => {
 
-  const { cityName, setCityName } = useCity();
+  const { setCityName } = useCity();
 
     const onChangeOption = (event) => {
         if(event.target.value !== "select menu" ) {
@@ -18,7 +18,6 @@ const Search = () => {
         <option defaultValue={"selected"}>Bir şehir seç</option>
         {
           citysJson.map((city) => (
-
             <option value={city.name} key={city.id}>{city.name}</option>
           ))
         } 
@@ -26,6 +25,6 @@ const Search = () => {
       </form>
     </div>
   )
-}
+};
 
 export default Search;

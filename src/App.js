@@ -1,19 +1,27 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Main from './components/Main'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { CityProvider } from './context/CityContext';
 import { WeaterProvider } from './context/WeaterContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Main from './components/Main'
+import Hours from './components/Hours';
 
 function App() {
   return (
-    <>  
-    <CityProvider>
-      <WeaterProvider>                 
-          <Main/>       
-      </WeaterProvider>  
-    </CityProvider>       
+    <> 
+        <CityProvider>
+          <WeaterProvider>
+            <Routes>
+              <Route path='/' element={ <Main/>}>
+                <Route path=':index' element={<Hours />} />
+              </Route>
+            </Routes>               
+          </WeaterProvider>  
+        </CityProvider>       
     </>
   );
-}
+};
 
 export default App;
