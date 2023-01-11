@@ -5,26 +5,29 @@ import { Outlet, Link } from 'react-router-dom';
 const Main = () => {
 
     const { cityName } = useCity();
-    const { weater, daysWeater, title, imgURL } = useWeater();
+    const { weater, daysWeater, title, imgURL,loading } = useWeater();
 
   return (
-    <div className='container text-center pb-3'>     
-      <div className='main-card row p-2'>
-        <div className="card city_card col-lg-4 col-md-6 col-sm-6 bg-light" >
-          <h2 className='city-name'>{cityName.toUpperCase()}</h2>
-          <img src={`${imgURL}`} className="card-img-top" alt="icon-img"/>
-          <div className="card-body p-0">
-            <h5 className="card-title temp">{`${weater.temp_c}`}<sup>o</sup></h5>
-            <h6 className="card-title feelslike">{`${weater.feelslike_c}`}<sup>o</sup></h6>
-            <h6 className={`card-title sky ${title == "Güneşli" && "text-warning" || title == "Açık" && "text-warning" || "text-danger" }`}>{`${title}`}</h6>
-            <p className="card-text">{`${weater.temp_c}`} km/s <i className="fa-solid fa-wind"></i></p>
-            <p className="card-text">{`${weater.last_updated}`.replaceAll(/-/g,".")}</p>
+    <div className='container text-center pb-3'>   
+      {
+        loading ? <h2>Yükleniyor...</h2> :
+        <>
+          <div className='main-card row p-2'>
+            <div className="card city_card col-lg-4 col-md-6 col-sm-6 bg-light" >
+            <h2 className='city-name'>{cityName.toUpperCase()}</h2>
+            <img src={`${imgURL}`} className="card-img-top" alt="icon-img"/>
+            <div className="card-body p-0">
+              <h5 className="card-title temp">{`${weater.temp_c}`}<sup>o</sup></h5>
+              <h6 className="card-title feelslike">{`${weater.feelslike_c}`}<sup>o</sup></h6>
+              <h6 className={`card-title sky ${title == "Güneşli" && "text-warning" || title == "Açık" && "text-warning" || "text-danger" }`}>{`${title}`}</h6>
+              <p className="card-text">{`${weater.temp_c}`} km/s <i className="fa-solid fa-wind"></i></p>
+              <p className="card-text">{`${weater.last_updated}`.replaceAll(/-/g,".")}</p>
+            </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div className="card-group my_cards">
-        {
+          <div className="card-group my_cards">
+          {
           daysWeater.map((day,index) => (
             <div key={index} className='card days_card p-1 bg-light'>
               <Link to={`/${index}`}>
@@ -53,9 +56,12 @@ const Main = () => {
               </Link>
             </div>
           ))
-        }
-      </div>
-      <Outlet />
+          }
+          </div>
+
+          <Outlet />
+        </>
+      }
     </div>
   )
 };

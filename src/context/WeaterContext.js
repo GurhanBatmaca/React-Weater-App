@@ -12,6 +12,7 @@ export const WeaterProvider = ({children}) => {
     const [title, setTitle] = useState("");
     const [imgURL, setImgURL] = useState("");
     const [hours, setHours] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const options = {
@@ -25,11 +26,11 @@ export const WeaterProvider = ({children}) => {
         fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityName}&days=7&lang=tr`, options)
             .then(response => response.json())
             .then((response) => {
-                // console.log(response.current);
                 setWeater(response.current);
                 setTitle(Object.values(response.current.condition)[0]);
                 setImgURL(Object.values(response.current.condition)[1]);
                 setDaysWeater(response.forecast.forecastday);
+                setLoading(false)
             })
             .catch(err => console.error(err));
     },[cityName])
@@ -39,7 +40,8 @@ export const WeaterProvider = ({children}) => {
         daysWeater, setDaysWeater,
         title, setTitle,
         imgURL, setImgURL,
-        hours, setHours
+        hours, setHours,
+        loading, setLoading
     };
 
     return <WeaterContext.Provider value={values}>{children}</WeaterContext.Provider>;    

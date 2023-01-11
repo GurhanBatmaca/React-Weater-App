@@ -7,6 +7,7 @@ import { WeaterProvider } from './context/WeaterContext';
 
 import Main from './components/Main'
 import Hours from './components/Hours';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path='/' element={ <Main/>}>
                 <Route path=':index' element={<Hours />} />
               </Route>
+              <Route path='*' element={<ErrorPage/>} />
             </Routes>               
           </WeaterProvider>  
         </CityProvider>       
