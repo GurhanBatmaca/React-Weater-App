@@ -1,55 +1,48 @@
-.main-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.city_card img {
-  height: 100px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
+.main-layout {
+  min-height: 100vh;
+  background-color: #03001C;
+  color: #fff;
 }
 
-.my_cards .days_card img {
-  height: 100px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
+/* navbar */
+.my_navbar {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  bottom: 1rem;
+  background-color:rgba(0,0,255,0.1);
+  border-radius: 10px;
+  z-index: 1;
+
 }
 
-.my_cards .days_card .card-body {
-  height: 100%;
-  width: 100%;
-}
-
-.city-name {
-  border-bottom: 1px solid black;
-}
-
-.temp {
-  font-size: 2.8rem;
-}
-
-.feelslike {
-  font-size: 1.5rem;
-}
-
-.sky {
-  font-size: 2rem;
-  height: 6rem;
-}
-
-.max-min {
+.my_navbar nav {
   display: flex;
   flex-direction: column;
 }
 
-a {
-  text-decoration: none!important;
+.my_navbar nav a {
+  padding: 15px;
 }
 
-.error-page {
-  height: 100vh;
-  width: 100vw;
+.close-btn {
+  position: fixed;
+  top: 1.9rem;
+  left: 1rem;
+  z-index: 1;
 }
 
+/* search */
+
+.search form {
+  display: flex;
+  padding: 2rem 4rem;
+}
+
+.search form input {
+  background-color:rgba(0,0,255,0.1);
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  border: none;
+}

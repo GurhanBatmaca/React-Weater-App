@@ -1,30 +1,31 @@
-import { useCity } from '../context/CityContext';
-import citysJson from '../data/citys.json';
+import { UseWeater } from "../context/WeaterContext";
 
 const Search = () => {
 
-  const { setCityName } = useCity();
+  const { city,setCity } = UseWeater();
 
-    const onChangeOption = (event) => {
-        if(event.target.value !== "select menu" ) {
-          setCityName(event.target.value);
-        };
-    };
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    console.log(city)
+  };
+
+  const onInput = (e) => {
+    setCity(e.target.value)
+    console.log(e.target.value)
+  }
 
   return (
-    <div className='container py-3'>
-      <form>
-        <select className='form-select' onChange={onChangeOption}>
-        <option defaultValue={"selected"}>Bir şehir seç</option>
-        {
-          citysJson.map((city) => (
-            <option value={city.name} key={city.id}>{city.name}</option>
-          ))
-        } 
-        </select>
-      </form>
+    <div className='search'>
+        <form onSubmit={onFormSubmit}>
+          <input 
+            onChange={ (e) => {setCity(e.target.value)}} 
+            className="" placeholder='Search a City' value={city}>
+              
+            </input>
+          <button type='submit' className='btn'><i className="fa-solid fa-magnifying-glass"></i></button>
+        </form>
     </div>
   )
-};
+}
 
 export default Search;
