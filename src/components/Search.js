@@ -2,26 +2,21 @@ import { UseWeater } from "../context/WeaterContext";
 
 const Search = () => {
 
-  const { city,setCity } = UseWeater();
+  const { cityInput, setCityInput, setCity } = UseWeater();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    console.log(city)
+    setCity(cityInput);
+    setCityInput("");
   };
-
-  const onInput = (e) => {
-    setCity(e.target.value)
-    console.log(e.target.value)
-  }
 
   return (
     <div className='search'>
         <form onSubmit={onFormSubmit}>
           <input 
-            onChange={ (e) => {setCity(e.target.value)}} 
-            className="" placeholder='Search a City' value={city}>
-              
-            </input>
+            onChange={ (e) => {setCityInput(e.target.value)}} 
+            className="" placeholder='Search a City' value={cityInput}>              
+          </input>
           <button type='submit' className='btn'><i className="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>
