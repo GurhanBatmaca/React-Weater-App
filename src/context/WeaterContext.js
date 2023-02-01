@@ -4,9 +4,14 @@ const WeaterContext = createContext();
 
 export const WeaterProvider = ( {children} ) => {
 
-    const [weater, setWeater] = useState([]);
+    const [weater, setWeater] = useState({});
     const [city, setCity] = useState("istanbul");
-    const [cityInput,setCityInput] = useState("")
+    const [cityInput,setCityInput] = useState("");
+    const [text, setText] = useState("");
+    const [imgURL, setImgURL] = useState("");
+    const [days, setDays] = useState([]);
+    const [date, setDate] = useState({});
+    const [hours, setHours] = useState([]);
 
     useEffect(() => {
         const options = {
@@ -20,8 +25,12 @@ export const WeaterProvider = ( {children} ) => {
         fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=7&lang=tr`, options)
             .then(response => response.json())
             .then((response) => {
-                // setWeater(response.current);
-                console.log(response);
+                setWeater(response.current);
+                setText(Object.values(response.current.condition)[0]);
+                setImgURL(Object.values(response.current.condition)[1]);
+                setDays(response.forecast.forecastday);
+                setHours(response.forecast.forecastday[0].hour)
+                // console.log(response.current);
             })
             .catch(err => console.error(err));
     },[city])
@@ -31,7 +40,11 @@ export const WeaterProvider = ( {children} ) => {
     const values = {
         cityInput, setCityInput,
         city, setCity,
-        weater, setWeater
+        weater, setWeater,
+        text, setText,
+        imgURL, setImgURL,
+        days, setDays,
+        hours, setHours
     };
 
 

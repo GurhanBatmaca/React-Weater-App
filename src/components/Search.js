@@ -6,8 +6,13 @@ const Search = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    if(cityInput === "") {
+        throw new Response("Bu alan boş bıarılamaz.")
+      return;
+    } 
     setCity(cityInput);
     setCityInput("");
+   
   };
 
   return (
