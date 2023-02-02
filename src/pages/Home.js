@@ -8,12 +8,12 @@ const Home = () => {
   const { weater, city, text, imgURL } = UseWeater();
 
   return (
-    <div className='home row'>
+    <div className='home row p-2'>
 
-      <div className="col-md-8">
+      <div className="col-md-8 mb-2 left-side">
         <div className='today'>
           <div className='name'>
-            <h3>{city}</h3>
+            <h3>{city.toUpperCase()}</h3>
             <p>{text}</p>
             <h2>{weater.temp_c}<sup>o</sup></h2>
           </div>
@@ -22,18 +22,18 @@ const Home = () => {
           </div>
         </div>
 
-        <div >
+        < >
           <Hours />
-        </div>
+        </>
 
-        <div>
+        <>
           <Deatails />
-        </div>
+        </>
       </div>
 
-      <div className='col-md-4 days'>
+      < >
         <Days />
-      </div>
+      </>
     </div>
   )
 }

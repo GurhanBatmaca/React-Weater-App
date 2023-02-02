@@ -2,6 +2,10 @@
   padding: 0!important;
   margin: 0!important;
 }
+
+.col-md-8,.col-md-8 {
+  padding: 0!important;
+}
 .main-layout {
   min-height: 100vh;
   background-color: #03001C;
@@ -51,14 +55,15 @@
   color: white;
 }
 
-/* hours */
+/* details */
 
-.hours {
-  display: flex;
+.details {
+  background-color:rgba(0,0,255,0.1);
 }
 
 .details .detail {
   display: flex;
+  justify-content: space-between;
 }
 
 /* today */
@@ -66,4 +71,31 @@
 .home .today {
   display: flex;
   justify-content: space-between;
+  /* padding: 1rem; */
+}
+
+/* .days */
+
+.days {
+  background-color:rgba(0,0,255,0.1);
+}
+
+.days .day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* hours */
+
+.hours {
+  background-color:rgba(0,0,255,0.1);
+}
+
+/* mobile */
+
+@media(min-width: 768px) {
+  .left-side {
+    /* düzenle */
+  }
 }
