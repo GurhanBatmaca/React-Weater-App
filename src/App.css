@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .row {
   padding: 0!important;
   margin: 0!important;
@@ -19,7 +25,7 @@
   left: 1rem;
   bottom: 1rem;
   background-color:rgba(0,0,255,0.1);
-  border-radius: 10px;
+  border-radius: 1rem;
   z-index: 1;
 }
 
@@ -29,13 +35,13 @@
 }
 
 .my_navbar nav a {
-  padding: 15px;
+  padding: 1rem;
 }
 
 .close-btn {
   position: fixed;
-  top: 1.9rem;
-  left: 1rem;
+  /* top: rem;
+  left: rem; */
   z-index: 1;
 }
 
@@ -43,7 +49,7 @@
 
 .search form {
   display: flex;
-  padding: 2rem 4rem;
+  padding: 2rem 1rem 0 2rem;
 }
 
 .search form input {
@@ -59,6 +65,7 @@
 
 .details {
   background-color:rgba(0,0,255,0.1);
+  border-radius: 1rem;
 }
 
 .details .detail {
@@ -66,36 +73,86 @@
   justify-content: space-between;
 }
 
+.details .detail div {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
 /* today */
 
 .home .today {
   display: flex;
   justify-content: space-between;
-  /* padding: 1rem; */
+  align-items: center;
+  /* background-color:rgba(0,0,255,0.1); */
+  border-radius: 1rem;
+}
+
+.today .temp {
+  font-size: 2rem;
 }
 
 /* .days */
 
 .days {
   background-color:rgba(0,0,255,0.1);
+  border-radius: 1rem;
 }
 
 .days .day {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid cadetblue;
+}
+
+.days .day-container {
+  font-size: 1.1rem;
 }
 
 /* hours */
 
 .hours {
   background-color:rgba(0,0,255,0.1);
+  border-radius: 1rem;
+}
+
+.hours .hour {
+  border-bottom: 1px solid cadetblue;
+}
+
+.hours .hour:nth-child(1) {
+  border-right: 1px solid cadetblue;
+}
+.hours .hour:nth-child(2) {
+  border-right: 1px solid cadetblue;
+}
+.hours .hour:nth-child(4) {
+  border-right: 1px solid cadetblue;
+}
+.hours .hour:nth-child(5) {
+  border-right: 1px solid cadetblue;
+}
+
+.hours .hour-item {
+  padding: 0.3rem;
+}
+
+.hours .temp {
+  font-size: 1.3rem;
 }
 
 /* mobile */
 
 @media(min-width: 768px) {
-  .left-side {
-    /* düzenle */
+  .hours .hour:not(:last-child) {
+    border-right: 1px solid cadetblue;
+  }
+  .hours .hour {
+    border-bottom: none;
+  }
+
+  .days {
+    min-height: 80vh;
   }
 }

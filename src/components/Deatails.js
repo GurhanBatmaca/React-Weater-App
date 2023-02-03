@@ -5,10 +5,10 @@ const Deatails = () => {
     const { weater } = UseWeater();
 
   return (
-    <div className='details'>
-        <div className='detail'>
+    <div className='details p-3'>
+        <div className='detail p-2 text-center'>
             <div>
-              <div><i className="fa-sharp fa-solid fa-temperature-half"></i> Hissdilen</div>
+              <div><i className="fa-sharp fa-solid fa-temperature-half"></i> Hissedilen</div>
               {weater.feelslike_c}<sup>o</sup>
             </div>
             <div>
@@ -17,7 +17,7 @@ const Deatails = () => {
             </div>
         </div>
 
-        <div className='detail'>
+        <div className='detail p-2 text-center'>
             <div>
               <div><i className="fa-solid fa-water"></i> Nem</div>
               %{weater.humidity}
