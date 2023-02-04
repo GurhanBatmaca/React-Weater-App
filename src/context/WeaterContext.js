@@ -10,7 +10,7 @@ export const WeaterProvider = ( {children} ) => {
     const [text, setText] = useState("");
     const [imgURL, setImgURL] = useState("");
     const [days, setDays] = useState([]);
-    const [date, setDate] = useState({});
+    const [warning, setWarning] = useState(false);
     const [hours, setHours] = useState([]);
 
     useEffect(() => {
@@ -44,7 +44,8 @@ export const WeaterProvider = ( {children} ) => {
         text, setText,
         imgURL, setImgURL,
         days, setDays,
-        hours, setHours
+        hours, setHours,
+        warning, setWarning
     };
 
 

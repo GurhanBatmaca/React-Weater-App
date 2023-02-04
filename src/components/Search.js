@@ -2,13 +2,16 @@ import { UseWeater } from "../context/WeaterContext";
 
 const Search = () => {
 
-  const { cityInput, setCityInput, setCity } = UseWeater();
+  const { cityInput, setCityInput, setCity, warning, setWarning } = UseWeater();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     if(cityInput === "") {
-        throw new Response("Bu alan boş bıarılamaz.")
-      return;
+        setWarning(true)
+        setTimeout(() => {
+          setWarning(false);
+        },2000)
+        return;    
     } 
     setCity(cityInput);
     setCityInput("");
@@ -18,12 +21,13 @@ const Search = () => {
   return (
     <div className='search'>
         <form onSubmit={onFormSubmit}>
-          <input 
-            onChange={ (e) => {setCityInput(e.target.value)}} 
-            className="" placeholder='Search a City' value={cityInput}>              
-          </input>
-          <button type='submit' className='btn'><i className="fa-solid fa-magnifying-glass"></i></button>
+            <input 
+              onChange={ (e) => {setCityInput(e.target.value)}} 
+              className="" placeholder='Search a City' value={cityInput}>              
+            </input>
+            <button type='submit' className='btn'><i className="fa-solid fa-magnifying-glass"></i></button>
         </form>
+        {warning && <span class="bg-warning warning">Lütfen bir şehir adı girin</span>}
     </div>
   )
 }

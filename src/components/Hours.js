@@ -10,7 +10,7 @@ const Hours = () => {
     });
 
   return (
-    <div className="hours row row-cols-3 row-cols-md-6 text-center mb-2 p-3">
+    <div className="hours row row-cols-3 row-cols-md-6 text-center mb-4 p-3">
         {
             newHours.map((hour,index) => (
                 <div className="col hour" key={index}>

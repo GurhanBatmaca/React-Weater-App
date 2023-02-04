@@ -8,7 +8,7 @@ const Today = () => {
 
     <div className='today p-3 mb-2'>
         <div>
-            <h3 className='name'>{city.toUpperCase()}</h3>
+            <h2 className='name'>{city.toUpperCase()}</h2>
             <p className='desc'>{text}</p>
             <h2 className='temp'>{weater.temp_c}<sup>o</sup></h2>
         </div>

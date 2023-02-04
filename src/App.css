@@ -40,8 +40,8 @@ body {
 
 .close-btn {
   position: fixed;
-  /* top: rem;
-  left: rem; */
+  top: 1.9rem;
+  left: rem;
   z-index: 1;
 }
 
@@ -59,6 +59,18 @@ body {
   padding: 0.4rem;
   border: none;
   color: white;
+  letter-spacing: 0.1rem;
+}
+
+.search .warning {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  transition: all 1s ease;
+  letter-spacing: 0.1rem;
+
 }
 
 /* details */
@@ -66,6 +78,9 @@ body {
 .details {
   background-color:rgba(0,0,255,0.1);
   border-radius: 1rem;
+  box-shadow: rgba(188, 198, 216, 0.25) 0px 1px 1px, rgba(176, 186, 203, 0.13) 0px 0px 1px 1px;
+  letter-spacing: 0.1rem;
+
 }
 
 .details .detail {
@@ -84,7 +99,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color:rgba(0,0,255,0.1); */
+  letter-spacing: 0.1rem;
   border-radius: 1rem;
 }
 
@@ -96,6 +111,8 @@ body {
 
 .days {
   background-color:rgba(0,0,255,0.1);
+  box-shadow: rgba(188, 198, 216, 0.25) 0px 1px 1px, rgba(176, 186, 203, 0.13) 0px 0px 1px 1px;
+  letter-spacing: 0.1rem;
   border-radius: 1rem;
 }
 
@@ -115,6 +132,8 @@ body {
 .hours {
   background-color:rgba(0,0,255,0.1);
   border-radius: 1rem;
+  letter-spacing: 0.1rem;
+  box-shadow: rgba(188, 198, 216, 0.25) 0px 1px 1px, rgba(176, 186, 203, 0.13) 0px 0px 1px 1px;
 }
 
 .hours .hour {
@@ -148,11 +167,12 @@ body {
   .hours .hour:not(:last-child) {
     border-right: 1px solid cadetblue;
   }
+  
   .hours .hour {
     border-bottom: none;
   }
 
   .days {
-    min-height: 80vh;
+    min-height:83vh;
   }
 }
