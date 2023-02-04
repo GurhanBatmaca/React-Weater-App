@@ -4,8 +4,6 @@ const Days = () => {
 
     const { days, setDays } = UseWeater();
 
-    console.log(days);
-
   return (
     <div className='col-md-4 p-3'>
       <div className="p-3 days">
