@@ -1,12 +1,14 @@
 import Days from "../components/Days";
 import Deatails from "../components/Deatails";
 import Hours from "../components/Hours";
+import Search from "../components/Search";
 import Today from "../components/Today";
 
 const Home = () => {
 
   return (
     <div className='home row p-2'>
+      <Search />
 
       <div className="col-md-8  left-side">
         <div className="p-3">

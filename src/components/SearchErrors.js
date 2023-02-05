@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { UseWeater } from "../context/WeaterContext";
-import { NavLink, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 
 const SearchErrors = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { setCity } = UseWeater();
   
   setCity("istanbul");

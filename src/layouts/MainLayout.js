@@ -6,7 +6,6 @@ export const MainLayout = () => {
     return(
         <div className="main-layout ">
             <Navbar />
-            <Search />
             <Outlet />
 
         </div>

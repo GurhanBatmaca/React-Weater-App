@@ -12,6 +12,7 @@ export const WeaterProvider = ( {children} ) => {
     const [days, setDays] = useState([]);
     const [warning, setWarning] = useState(false);
     const [hours, setHours] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const options = {

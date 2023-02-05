@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom"
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [warning, setWarning] = useState(false);
   const [success, setSuccess] = useState(false);
   const form = useRef();
@@ -21,8 +23,11 @@ const Contact = () => {
       setWarning(false);
       setSuccess(true);
       setTimeout(() => {
-        setSuccess(false);
-      },2000)  
+        setSuccess(false);       
+      },2000); 
+      setTimeout(() => {
+        navigate("/");
+      },4000)
       nameValue.current.value = "";
       emailValue.current.value = "";
       messageValue.current.value = "";
@@ -38,24 +43,27 @@ const Contact = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className="container">
-      <div className='my-3'>
-        <label className='form-label'>Name</label>
-        <input ref={nameValue} className='form-control' type="text" name="guest_name" placeholder='Name'/>
-      </div>
-      <div className='mb-3'>
-        <label className='form-label'>Email</label>
-        <input ref={emailValue} className='form-control' type="email" name="guest_email" placeholder='Email' />
-      </div>
-      <div className='mb-3'>
-        <label className='form-label'>Message</label>
-        <textarea ref={messageValue} className='form-control' name="message" placeholder='The message must contain at least 10 characters.' />
-      </div>
+    <div className='contact'>
+        <h2 className='text-center'>İletişim Formu</h2>
+        <form ref={form} onSubmit={sendEmail} className="container">
+        <div className='mb-3'>
+          <label className='form-label'>Name</label>
+          <input ref={nameValue} className='form-control' type="text" name="guest_name" placeholder='Name'/>
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>Email</label>
+          <input ref={emailValue} className='form-control' type="email" name="guest_email" placeholder='Email' />
+        </div>
+        <div className='mb-3'>
+          <label className='form-label'>Message</label>
+          <textarea ref={messageValue} className='form-control' name="message" placeholder='The message must contain at least 10 characters.' />
+        </div>
 
-      <input className='form-control btn btn-light mb-3' type="submit" value="Send" />
-      {warning && <div>Formu eksiksiz doldurduğunuzdan emin olun.</div>}
-      {success && <div>Mesaj başarılı bir şekilde gönderildi.</div>}
-    </form>
+        <input className='form-control btn btn-light mb-3' type="submit" value="Send" />
+        {warning && <div className='text-center p-2 bg-danger'>Formu eksiksiz doldurduğunuzdan emin olun.</div>}
+        {success && <div className='text-center p-2 bg-success'>Mesaj başarılı bir şekilde gönderildi.</div>}
+      </form>
+    </div>
   );
 };
 

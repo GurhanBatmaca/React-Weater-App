@@ -15,7 +15,7 @@ const Days = () => {
                 <div className="text-center" ><i className="fa-solid fa-calendar-day"></i> {day.date.slice(5,10).replaceAll("-",".")}</div>
                 <div className="day py-3">
                   <div><i className="fa-sharp fa-solid fa-temperature-half"></i> {day.day.avgtemp_c}<sup>o</sup></div>
-                  <div><img src={day.day.condition.icon} /></div>
+                  <div><img src={day.day.condition.icon} alt="condition-icon"/></div>
                   <div><i className="fa-solid fa-cloud-rain"></i> %{day.day.daily_chance_of_rain}</div>
                 </div>
               </div>

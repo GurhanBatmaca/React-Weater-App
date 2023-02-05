@@ -13,7 +13,7 @@ const Today = () => {
             <h2 className='temp'>{weater.temp_c}<sup>o</sup></h2>
         </div>
         <div className='img'>
-            <img src={`${imgURL}`}/>
+            <img src={`${imgURL}`} alt="condition-icon"/>
         </div>
     </div>
 

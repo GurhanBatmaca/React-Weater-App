@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
 body {
   font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Dancing Script', cursive; */
 }
 
 .row {
@@ -12,6 +13,13 @@ body {
 .col-md-8,.col-md-8 {
   padding: 0!important;
 }
+
+a {
+  text-decoration: none!important;
+}
+
+/* main-layout */
+
 .main-layout {
   min-height: 100vh;
   background-color: #03001C;
@@ -24,7 +32,7 @@ body {
   top: 1rem;
   left: 1rem;
   bottom: 1rem;
-  background-color:rgba(0,0,255,0.1);
+  background-color:rgba(1, 28, 103, 0.6);
   border-radius: 1rem;
   z-index: 1;
 }
@@ -34,22 +42,29 @@ body {
   flex-direction: column;
 }
 
-.my_navbar nav a {
-  padding: 1rem;
+.my_navbar nav a,
+.my_navbar nav i {
+  padding: 0.4rem;
+  color: #fff;
 }
 
 .close-btn {
   position: fixed;
-  top: 1.9rem;
+  bottom: 1rem;
   left: rem;
   z-index: 1;
+  color: #fff;
+}
+
+.close-btn i {
+  color: #fff;
 }
 
 /* search */
 
 .search form {
   display: flex;
-  padding: 2rem 1rem 0 2rem;
+  padding: 1rem ;
 }
 
 .search form input {
@@ -107,6 +122,15 @@ body {
   font-size: 2rem;
 }
 
+.today .name::first-letter {
+  /* font-family: 'Dancing Script', cursive; */
+  font-size: 2.5rem;
+}
+
+.today .name {
+  font-family: 'Dancing Script', cursive;
+}
+
 /* .days */
 
 .days {
@@ -159,6 +183,20 @@ body {
 
 .hours .temp {
   font-size: 1.3rem;
+}
+
+/* contact */
+
+.contact h2 {
+  padding: 2rem 0 0 0 ; 
+}
+
+/* notfound */
+
+.notfound {
+  width: 100%;
+  height: 100vh;
+  background-color: #03001C; 
 }
 
 /* mobile */
