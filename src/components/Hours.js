@@ -1,35 +1,28 @@
-import { useParams } from "react-router-dom";
-import { useWeater } from '../context/WeaterContext';
-import { useEffect } from "react";
+import { UseWeater } from "../context/WeaterContext";
 
 const Hours = () => {
 
-    const { index } = useParams();
-
-    const { daysWeater, hours, setHours } = useWeater();
-
-    useEffect(() => {
-        daysWeater.forEach((item,i) => {
-            if(i == index) {
-                setHours(item.hour);
-            };
-        })
-    },[index,hours]);
+    const { hours } = UseWeater();
+    const newHours = hours.filter((hour,index) => {
+        if(index === 6 || index === 9 || index === 12 || index === 15|| index === 18|| index === 21 ) {
+            return hour;
+        }
+    });
 
   return (
-    <div className="row p-2">
+    <div className="hours row row-cols-3 row-cols-md-6 text-center mb-2 p-3">
         {
-            hours.map((hour,ky) => (
-               <div key={ky} className="card col-sm-2 bg-light pt-1">
-                    <p> <i className="fa-regular fa-clock"></i> {`${hour.time}`.slice(11,16)}</p>
-                    <p className="fs-4">{hour.temp_c}<sup>o</sup></p>
-                    <p className={`card-title ${hour.condition.text == "Güneşli" && "text-warning" || hour.condition.text == "Açık" && "text-warning" || "text-danger" }`}>{hour.condition.text}</p>
-                    <p>{hour.wind_kph} km/s <i className="fa-solid fa-wind"></i></p>
-               </div>                
+            newHours.map((hour,index) => (
+                <div className="col hour" key={index}>
+                    <div className="hour-item"><i className="fa-regular fa-clock"></i> {hour.time.slice(11,16)}</div>
+                    <div className="hour-item temp">{hour.temp_c}<sup>o</sup></div>
+                    <div className="hour-item"><img src={`${hour.condition.icon}`} alt="condition-icon"/></div>
+                </div>
             ))
         }
     </div>
-  );
-};
+
+  )
+}
 
 export default Hours;

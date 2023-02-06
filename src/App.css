@@ -1,55 +1,227 @@
-.main-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.city_card img {
-  height: 100px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Dancing Script', cursive; */
 }
 
-.my_cards .days_card img {
-  height: 100px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
+.row {
+  padding: 0!important;
+  margin: 0!important;
 }
 
-.my_cards .days_card .card-body {
-  height: 100%;
-  width: 100%;
-}
-
-.city-name {
-  border-bottom: 1px solid black;
-}
-
-.temp {
-  font-size: 2.8rem;
-}
-
-.feelslike {
-  font-size: 1.5rem;
-}
-
-.sky {
-  font-size: 2rem;
-  height: 6rem;
-}
-
-.max-min {
-  display: flex;
-  flex-direction: column;
+.col-md-8,.col-md-8 {
+  padding: 0!important;
 }
 
 a {
   text-decoration: none!important;
 }
 
-.error-page {
-  height: 100vh;
-  width: 100vw;
+/* HOME */
+/* main-layout */
+
+.main-layout {
+  min-height: 100vh;
+  background-color: #03001C;
+  color: #fff;
 }
 
+/* navbar */
+.my_navbar {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  bottom: 1rem;
+  background-color:rgba(1, 28, 103, 0.6);
+  border-radius: 1rem;
+  z-index: 1;
+}
+
+.my_navbar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.my_navbar nav a,
+.my_navbar nav i {
+  padding: 0.4rem;
+  color: #fff;
+}
+
+.close-btn {
+  position: fixed;
+  bottom: 1rem;
+  left: rem;
+  z-index: 1;
+  color: #fff;
+}
+
+.close-btn i {
+  color: #fff;
+}
+
+/* search */
+
+.search form {
+  display: flex;
+  padding: 1rem ;
+}
+
+.search form input {
+  background-color:rgba(0,0,255,0.1);
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  border: none;
+  color: white;
+  letter-spacing: 0.1rem;
+}
+
+.search .warning {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  transition: all 1s ease;
+  letter-spacing: 0.1rem;
+
+}
+
+/* details */
+
+.details {
+  background-color:rgba(0,0,255,0.1);
+  border-radius: 1rem;
+  box-shadow: rgba(188, 198, 216, 0.25) 0px 1px 1px, rgba(176, 186, 203, 0.13) 0px 0px 1px 1px;
+  letter-spacing: 0.1rem;
+
+}
+
+.details .detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details .detail div {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* today */
+
+.home .today {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+}
+
+.today .temp {
+  font-size: 2rem;
+}
+
+.today .name::first-letter {
+  /* font-family: 'Dancing Script', cursive; */
+  font-size: 2.5rem;
+}
+
+.today .name {
+  font-family: 'Dancing Script', cursive;
+}
+
+/* .days */
+
+.days {
+  background-color:rgba(0,0,255,0.1);
+  box-shadow: rgba(188, 198, 216, 0.25) 0px 1px 1px, rgba(176, 186, 203, 0.13) 0px 0px 1px 1px;
+  letter-spacing: 0.1rem;
+  border-radius: 1rem;
+}
+
+.days .day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid cadetblue;
+}
+
+.days .day-container {
+  font-size: 1.1rem;
+}
+
+/* hours */
+
+.hours {
+  background-color:rgba(0,0,255,0.1);
+  border-radius: 1rem;
+  letter-spacing: 0.1rem;
+  box-shadow: rgba(188, 198, 216, 0.25) 0px 1px 1px, rgba(176, 186, 203, 0.13) 0px 0px 1px 1px;
+}
+
+.hours .hour {
+  border-bottom: 1px solid cadetblue;
+}
+
+.hours .hour:nth-child(1) {
+  border-right: 1px solid cadetblue;
+}
+.hours .hour:nth-child(2) {
+  border-right: 1px solid cadetblue;
+}
+.hours .hour:nth-child(4) {
+  border-right: 1px solid cadetblue;
+}
+.hours .hour:nth-child(5) {
+  border-right: 1px solid cadetblue;
+}
+
+.hours .hour-item {
+  padding: 0.3rem;
+}
+
+.hours .temp {
+  font-size: 1.3rem;
+}
+
+/* loading */
+
+.home .loading-area {
+  padding: 4rem;
+}
+
+.home .loading-area .loading-text {
+  font-size: 2rem;
+}
+
+/* contact */
+
+.contact h2 {
+  padding: 2rem 0 0 0 ; 
+}
+
+/* notfound */
+
+.notfound {
+  width: 100%;
+  height: 100vh;
+  background-color: #03001C; 
+}
+
+/* mobile */
+
+@media(min-width: 768px) {
+  .hours .hour:not(:last-child) {
+    border-right: 1px solid cadetblue;
+  }
+  
+  .hours .hour {
+    border-bottom: none;
+  }
+
+  .days {
+    min-height:84vh;
+  }
+}

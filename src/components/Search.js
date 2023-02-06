@@ -1,30 +1,36 @@
-import { useCity } from '../context/CityContext';
-import citysJson from '../data/citys.json';
+import { UseWeater } from "../context/WeaterContext";
 
 const Search = () => {
 
-  const { setCityName } = useCity();
+  const { cityInput, setCityInput, setCity, warning, setWarning, setLoading } = UseWeater();
 
-    const onChangeOption = (event) => {
-        if(event.target.value !== "select menu" ) {
-          setCityName(event.target.value);
-        };
-    };
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    if(cityInput === "") {
+        setWarning(true)
+        setTimeout(() => {
+          setWarning(false);
+        },2000)
+        return;    
+    } 
+    setCity(cityInput);
+    setCityInput("");
+    setLoading(true);
+   
+  };
 
   return (
-    <div className='container py-3'>
-      <form>
-        <select className='form-select' onChange={onChangeOption}>
-        <option defaultValue={"selected"}>Bir şehir seç</option>
-        {
-          citysJson.map((city) => (
-            <option value={city.name} key={city.id}>{city.name}</option>
-          ))
-        } 
-        </select>
-      </form>
+    <div className='search'>
+        <form onSubmit={onFormSubmit}>
+            <input 
+              onChange={ (e) => {setCityInput(e.target.value)}} 
+              className="" placeholder='Search a City' value={cityInput}>              
+            </input>
+            <button type='submit' className='btn'><i className="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        {warning && <span class="bg-warning warning">Lütfen bir şehir adı girin</span>}
     </div>
   )
-};
+}
 
 export default Search;

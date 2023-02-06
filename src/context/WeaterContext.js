@@ -1,16 +1,16 @@
-import { createContext,useContext,useState,useEffect } from "react";
-import { useCity } from "./CityContext";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const WeaterContext = createContext();
 
-export const WeaterProvider = ({children}) => {
+export const WeaterProvider = ( {children} ) => {
 
-    const { cityName } = useCity();
-
-    const [weater,setWeater] = useState({});
-    const [daysWeater, setDaysWeater] = useState([]);
-    const [title, setTitle] = useState("");
+    const [weater, setWeater] = useState({});
+    const [city, setCity] = useState("istanbul");
+    const [cityInput,setCityInput] = useState("");
+    const [text, setText] = useState("");
     const [imgURL, setImgURL] = useState("");
+    const [days, setDays] = useState([]);
+    const [warning, setWarning] = useState(false);
     const [hours, setHours] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -23,28 +23,33 @@ export const WeaterProvider = ({children}) => {
             }
         };
         
-        fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${cityName}&days=7&lang=tr`, options)
+        fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${city}&days=7&lang=tr`, options)
             .then(response => response.json())
             .then((response) => {
                 setWeater(response.current);
-                setTitle(Object.values(response.current.condition)[0]);
+                setText(Object.values(response.current.condition)[0]);
                 setImgURL(Object.values(response.current.condition)[1]);
-                setDaysWeater(response.forecast.forecastday);
-                setLoading(false)
+                setDays(response.forecast.forecastday);
+                setHours(response.forecast.forecastday[0].hour)
+                setLoading(false);
             })
             .catch(err => console.error(err));
-    },[cityName])
+    },[city])
 
     const values = {
-        weater,setWeater,
-        daysWeater, setDaysWeater,
-        title, setTitle,
+        cityInput, setCityInput,
+        city, setCity,
+        weater, setWeater,
+        text, setText,
         imgURL, setImgURL,
+        days, setDays,
         hours, setHours,
+        warning, setWarning,
         loading, setLoading
     };
 
-    return <WeaterContext.Provider value={values}>{children}</WeaterContext.Provider>;    
+
+    return <WeaterContext.Provider value={values}>{children}</WeaterContext.Provider>;
 }
 
-export const useWeater = () => useContext(WeaterContext);
+export const UseWeater = () => useContext(WeaterContext);

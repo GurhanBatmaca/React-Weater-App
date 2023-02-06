@@ -1,12 +1,19 @@
-import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { router } from './Router';
+import { RouterProvider } from 'react-router-dom';
+import { WeaterProvider } from './context/WeaterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <>
+        <WeaterProvider>
+            <RouterProvider router={router} />
+        </WeaterProvider>
+    </>
 );
 
 

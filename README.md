@@ -3,6 +3,8 @@
 **24-hour weather forecast Outlet component**
 **Context api && Router used**
 
+
+[Demo v2] (https://reactweaterappv2.netlify.app/)
 [Demo](https://react-weaterapp.netlify.app/)  
 
 **Data from WeatherAPI.Com**
