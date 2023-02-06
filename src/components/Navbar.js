@@ -14,7 +14,6 @@ const Navbar = () => {
       {
         showNavbar && <button className="close-btn btn btn-outline" onClick={getNavbar} >
           <i className="fa-solid fa-location-dot fa-2x"></i>
-          {/* <i className="fa-solid fa-arrows-split-up-and-left fa-2x"></i> */}
         </button>
       }
       { !showNavbar &&     

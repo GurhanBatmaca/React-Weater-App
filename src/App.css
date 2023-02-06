@@ -18,6 +18,7 @@ a {
   text-decoration: none!important;
 }
 
+/* HOME */
 /* main-layout */
 
 .main-layout {
@@ -183,6 +184,16 @@ a {
 
 .hours .temp {
   font-size: 1.3rem;
+}
+
+/* loading */
+
+.home .loading-area {
+  padding: 4rem;
+}
+
+.home .loading-area .loading-text {
+  font-size: 2rem;
 }
 
 /* contact */

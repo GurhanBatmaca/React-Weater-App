@@ -2,7 +2,7 @@ import { UseWeater } from "../context/WeaterContext";
 
 const Search = () => {
 
-  const { cityInput, setCityInput, setCity, warning, setWarning } = UseWeater();
+  const { cityInput, setCityInput, setCity, warning, setWarning, setLoading } = UseWeater();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +15,7 @@ const Search = () => {
     } 
     setCity(cityInput);
     setCityInput("");
+    setLoading(true);
    
   };
 

@@ -31,12 +31,10 @@ export const WeaterProvider = ( {children} ) => {
                 setImgURL(Object.values(response.current.condition)[1]);
                 setDays(response.forecast.forecastday);
                 setHours(response.forecast.forecastday[0].hour)
-                // console.log(response.current);
+                setLoading(false);
             })
             .catch(err => console.error(err));
     },[city])
-
-
 
     const values = {
         cityInput, setCityInput,
@@ -46,7 +44,8 @@ export const WeaterProvider = ( {children} ) => {
         imgURL, setImgURL,
         days, setDays,
         hours, setHours,
-        warning, setWarning
+        warning, setWarning,
+        loading, setLoading
     };
 
 

@@ -47,16 +47,16 @@ const Contact = () => {
         <h2 className='text-center'>İletişim Formu</h2>
         <form ref={form} onSubmit={sendEmail} className="container">
         <div className='mb-3'>
-          <label className='form-label'>Name</label>
-          <input ref={nameValue} className='form-control' type="text" name="guest_name" placeholder='Name'/>
+          <label className='form-label'>İsim:</label>
+          <input ref={nameValue} className='form-control' type="text" name="guest_name" placeholder='İsim'/>
         </div>
         <div className='mb-3'>
-          <label className='form-label'>Email</label>
+          <label className='form-label'>Email:</label>
           <input ref={emailValue} className='form-control' type="email" name="guest_email" placeholder='Email' />
         </div>
         <div className='mb-3'>
-          <label className='form-label'>Message</label>
-          <textarea ref={messageValue} className='form-control' name="message" placeholder='The message must contain at least 10 characters.' />
+          <label className='form-label'>Mesaj:</label>
+          <textarea ref={messageValue} className='form-control' name="message" placeholder='Mesaj minimum 10 karakter içermelidir.' />
         </div>
 
         <input className='form-control btn btn-light mb-3' type="submit" value="Send" />
