@@ -2,7 +2,7 @@ import { UseWeater } from "../context/WeaterContext"
 
 const Days = () => {
 
-    const { days, setDays } = UseWeater();
+    const { days } = UseWeater();
 
   return (
     <div className='col-md-4 p-3'>

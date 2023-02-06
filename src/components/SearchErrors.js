@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { UseWeater } from "../context/WeaterContext";
 import { useNavigate } from "react-router-dom"
 
-
 const SearchErrors = () => {
 
   const navigate = useNavigate();

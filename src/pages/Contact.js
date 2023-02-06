@@ -20,6 +20,12 @@ const Contact = () => {
         setWarning(false);
       },2000)      
     } else {
+      emailjs.sendForm('service_kcsy9ef', 'template_6aeqwrp', form.current, '12qTFmN_bLVcQpje6')
+      .then((result) => {
+        // console.log(result.text);
+      }, (error) => {
+        // console.log(error.text);
+      });
       setWarning(false);
       setSuccess(true);
       setTimeout(() => {
@@ -33,13 +39,6 @@ const Contact = () => {
       messageValue.current.value = "";
     }
 
-
-    // emailjs.sendForm('service_kcsy9ef', 'template_6aeqwrp', form.current, '12qTFmN_bLVcQpje6')
-    //   .then((result) => {
-    //       console.log(result.text);
-    //   }, (error) => {
-    //       console.log(error.text);
-    //   });
   };
 
   return (
@@ -48,20 +47,20 @@ const Contact = () => {
         <form ref={form} onSubmit={sendEmail} className="container">
         <div className='mb-3'>
           <label className='form-label'>İsim:</label>
-          <input ref={nameValue} className='form-control' type="text" name="guest_name" placeholder='İsim'/>
+          <input ref={nameValue} className='form-control' type="text" name="guest_name" placeholder='İsminiz'/>
         </div>
         <div className='mb-3'>
           <label className='form-label'>Email:</label>
-          <input ref={emailValue} className='form-control' type="email" name="guest_email" placeholder='Email' />
+          <input ref={emailValue} className='form-control' type="email" name="guest_email" placeholder='ornek@gmail.com' />
         </div>
         <div className='mb-3'>
           <label className='form-label'>Mesaj:</label>
           <textarea ref={messageValue} className='form-control' name="message" placeholder='Mesaj minimum 10 karakter içermelidir.' />
         </div>
 
-        <input className='form-control btn btn-light mb-3' type="submit" value="Send" />
-        {warning && <div className='text-center p-2 bg-danger'>Formu eksiksiz doldurduğunuzdan emin olun.</div>}
-        {success && <div className='text-center p-2 bg-success'>Mesaj başarılı bir şekilde gönderildi.</div>}
+        <button className='form-control btn btn-light mb-3' type="submit" value="Send" >Gönder</button>
+        {warning && <div className='text-center p-2 bg-danger rounded'>Formu eksiksiz doldurduğunuzdan emin olun.</div>}
+        {success && <div className='text-center p-2 bg-success rounded'>Mesaj başarılı bir şekilde gönderildi.</div>}
       </form>
     </div>
   );
