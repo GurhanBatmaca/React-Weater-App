@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom"
 
 const SearchErrors = () => {
 
+
   const navigate = useNavigate();
-  const { setCity } = UseWeater();
+  const { setCity} = UseWeater();
   
   setCity("istanbul");
   useEffect(() => {

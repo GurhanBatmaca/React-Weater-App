@@ -30,10 +30,14 @@ export const WeaterProvider = ( {children} ) => {
                 setText(Object.values(response.current.condition)[0]);
                 setImgURL(Object.values(response.current.condition)[1]);
                 setDays(response.forecast.forecastday);
-                setHours(response.forecast.forecastday[0].hour)
+                setHours(response.forecast.forecastday[0].hour);
                 setLoading(false);
             })
-            .catch(err => console.error(err));
+            .catch((err) => {
+                console.error(err);
+                setLoading(false);
+
+            });
     },[city])
 
     const values = {
