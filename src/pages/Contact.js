@@ -20,7 +20,7 @@ const Contact = () => {
         setWarning(false);
       },2000)      
     } else {
-      emailjs.sendForm('service_kcsy9ef', 'template_6aeqwrp', form.current, '12qTFmN_bLVcQpje6')
+      emailjs.sendForm('service_key', 'template_key', form.current, 'api_key')  // must be your keys **
       .then((result) => {
         // console.log(result.text);
       }, (error) => {
